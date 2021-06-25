@@ -1,0 +1,197 @@
+/*Globales*/
+:root { /*pseudoselectores para definit paleta de colores, esto se llaman custom propierties*/
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #FFC107;
+    --secundario: #0097A7;
+    --gris: #757575;
+    --grisClaro: #DFE9F3;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box; /*Hack para box model*/
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 16px; /*1rem = 10px*/
+    font-family: 'Krub', sans-serif;
+    /*Buscar fuentes en google fonts*/
+
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100% );
+}
+
+.contenedor { /*Por lo regular siempre se crea un contenedor para definir los tamaños*/
+    max-width: 120rem; /*1200 pixeles*/
+    /*
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+    */
+    /*
+    margin: 0 auto 0 auto;
+    Si los valores se repiten se puede dejar en una sola 0 auto x2
+    */
+    margin: 0 auto;
+}
+
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 85%;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+   .boton {
+       width: auto;
+   }
+}
+
+.sombra {
+    box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.57);
+
+    background-color: var(--blanco);
+
+    padding: 2rem;
+
+    border-radius: 1rem;
+}
+
+/*Tipografia*/
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+/*
+Con esta conversión cuando quiera escribir
+60px 6rem y se adapta mejor a todos los dispositivos.
+*/
+
+/*Titulos*/
+.titulo span {
+    font-size: 2rem;
+}
+
+/*h1 span {} esto aplica a los span que están dentro de un h1*/
+
+/*
+.cliente {
+    color: blue; esto es una clase, se puede usar múltiples veces
+}
+
+#cliente {
+    color: blue; esto es un ID solo se puede utilizar una vez por documento
+}
+
+También se pueden usar selectores para los atributos (img, h1, etc)
+
+Combinación de descendentes
+.cliente .nombre {
+    color: blue; la clase nombre que esté dentro de la clase cliente recibirá el estilo
+}
+
+Aplicar la regla a todos los hijos
+.cliente > p{
+    color: blue; aplicará la regla para todos los parrafos que estén dentro de la clase cliente
+}
+*/
+
+
+/*Navegtación principal*/
+.nav-bg {
+    background-color: var(--secundario);
+}
+
+.navegacion-principal {
+    /*margin-top: 10rem; /*La distancia hacia afuera con el elemento más cercano*/
+    display: flex; /*Para usar flexbox solo en navacion-principal*/
+    flex-direction: column;    
+    align-items: center; /*Alinear verticalmente para flexdierction row*/
+}
+
+@media (min-width: 480px) {
+   .navegacion-principal {
+       flex-direction: row;
+       justify-content: space-between; /*Alinear horizontalmente*/
+   }
+}
+
+.navegacion-principal a {
+    color: var(--blanco);
+    text-decoration: none;
+    padding: 1rem; /*hacia adentro, hacer que cubra todo el espacio amarillo*/
+    font-size: 2rem;
+    font-weight: 700; /*700 o bold*/
+}
+
+.navegacion-principal a:hover {
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+.hero {
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    /*padding: 20px;*/
+    position: relative;
+
+    margin-bottom: 2rem;
+}
+
+/*
+Al padre position relative al hijo position absolute, siempre
+para poder ajustar bien
+Si no se hace position relative al padre, al que se le ponga position absolute
+tomara como absoluto todo el documento y se va a ajustar mal
+*/
+.contenido-hero {
+    position: absolute;
+    /*background-color: rgba(0, 0, 0, 0.4); /** anterior **/
+    background-color: rgb(0 0 0 / 50% ); /* Nueva sintaxis */
+    width: 100%;
+    height: 100%;
+
+    display: flex; /*para acomodar todo siempre usar display flex, a partir de aquí usar los estilos, coloca uno junto a otro*/
+    flex-direction: column; /*como es column no se usa justify-content se usa align-items*/
+    align-items: center;
+    justify-content: center; /*ahora si para alinear verticalmente*/
+
+}
+
+/*Recordar que esto es enfoque de modulos*/
+.contenido-hero h2,
+.contenido-hero p {
+    color: var(--blanco);
+}
+
+.contenido-hero .ubicacion {
+    display: flex;
+    align-items: flex-end;
+}
