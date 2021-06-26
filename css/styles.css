@@ -33,6 +33,7 @@ body {
     margin-bottom: 0;
     margin-left: auto;
     */
+
     /*
     margin: 0 auto 0 auto;
     Si los valores se repiten se puede dejar en una sola 0 auto x2
@@ -144,6 +145,7 @@ Padding: El espacio interior del contenido con las orillas (bordes) del contened
        justify-content: space-between; /*Alinear horizontalmente*/
    }
 }
+/* https://dev.to/anirudhvarma12/flexbox-align-items-vs-align-content-3knl */
 /*** TODOS LOS ESTILOS ESPECÍFICADOS EN EL MIN WIDTH SERÁN APLICADOS DE ESA MEDIDA EN ADELANTE ***/
 
 .navegacion-principal a {
@@ -174,7 +176,7 @@ Padding: El espacio interior del contenido con las orillas (bordes) del contened
 Al padre position relative al hijo position absolute, siempre
 para poder ajustar bien
 Si no se hace position relative al padre, al que se le ponga position absolute
-tomara como absoluto todo el documento y se va a ajustar mal
+tomara como relativo todo el documento y se va a ajustar mal
 */
 .contenido-hero {
     position: absolute;
@@ -184,9 +186,9 @@ tomara como absoluto todo el documento y se va a ajustar mal
     height: 100%;
 
     display: flex; /*para acomodar todo siempre usar display flex, a partir de aquí usar los estilos, coloca uno junto a otro*/
-    flex-direction: column; /*como es column no se usa justify-content se usa align-items*/
-    align-items: center;
-    justify-content: center; /*ahora si para alinear verticalmente*/
+    flex-direction: column; /*quiero que cada palabra vaya dirigida hacia abajo*/
+    align-items: center; /*centrar horizontalmente a partir de display flex*/
+    justify-content: center; /*centrar verticalmente a partir de display flex*/
 
 }
 
@@ -198,5 +200,6 @@ tomara como absoluto todo el documento y se va a ajustar mal
 
 .contenido-hero .ubicacion {
     display: flex;
-    align-items: flex-end;
+    align-items: center; /*flex-end*/
 }
+
