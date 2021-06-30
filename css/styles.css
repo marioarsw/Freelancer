@@ -198,8 +198,4 @@ tomara como relativo todo el documento y se va a ajustar mal
     color: var(--blanco);
 }
 
-.contenido-hero .ubicacion {
-    display: flex;
-    align-items: center; /*flex-end*/
-}
-
+/*NUevos comentarios*/
