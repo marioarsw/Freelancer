@@ -53,6 +53,12 @@ body {
     border-radius: 0.5rem;
     width: 85%;
     text-align: center;
+    border: none; /*para quitar el border del input de abajo*/
+}
+
+/*Para el submit del cuestionario*/
+.boton:hover {
+    cursor: pointer;
 }
 
 @media (min-width: 768px) {
@@ -202,4 +208,120 @@ tomara como relativo todo el documento y se va a ajustar mal
 .ubicacion {
     display: flex;
     align-items: flex-end;
+}
+
+@media (min-width: 768px) {
+   /**Servicios con CSS GRID**/
+   /*Cuando esté en una resolución mayor a 768 se verá en una columna de 3*/
+    .servicios {
+        display: grid; /*Va a tomar cada uno de los section como principales*/
+
+        /* Define dos columnas y después el tamaño de los renglones
+        grid-template-columns: 300px 300px;
+        grid-template-rows: 200px 800px;
+        */
+
+        /* Estas es la misma manera, rows / columns
+        grid: 200px 800px / 300px 300px
+        */
+
+        /*Como tengo 3 columnas para el 100%, las hago de 33.3%
+        grid-template-columns: 33.3% 33.3% 33.3%;
+        */
+
+        /*Lo de arriba se ve feo así que se pueden usar fracciones para ser más exactos*/
+        /*grid-template-columns: 1fr 1fr 1fr; y Esto se puede simplificar con repeat*/
+
+
+        grid-template-columns: repeat(3, 1fr);
+        /*Margin en css grid (espacio)*/
+        column-gap: 1rem;
+    }
+}
+
+/*
+¿Dónde utilizar Flexbox y donde Grid?
+Flexbox: Alinear elementos que están dentro de contenedores (Barra de navegación (logotipo y enlaces))
+Grid: Para definir el layout de tu sitio web, como columnas o contenedores de elementos, como hacer secciones de cuadros etc
+*/
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio h3 {
+    color: var(--secundario);
+    font-weight: normal; /*o 400px es lo mismo*/
+}
+
+.servicio p {
+    /*Cambiar interlineado*/
+    line-height: 2;
+    text-align: center;
+}
+
+.servicio .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex; /*da acceso a justify-content y align-items, por defecto se declara como flex-direction: row*/
+    justify-content: space-evenly; /*alinear horizontalmente*/
+    align-items: center; /*alinear verticalmente*/
+}
+
+/*contacto*/
+.formulario {
+    background-color: var(--gris);
+    width: min(60rem, 100%); /*Utilizar el valor más pequeño*/
+    /*
+    Explicación width pasado
+    Ese width está comparando, ¿qué es más pequeño, 600px o el 100% de la pantalla?
+    por ejemplo en una pantalla de una computadora siempre será más pequeño los 600px, así que define 
+    un cuadrito gris como el total, en cambio en un celular, el 100% de la pantalla será más pequeño
+    a los 600% así que tomará ese valor para definir el cuadro del formulario (el color gris)
+    */
+    margin: 0 auto; /*para centrarlo, como no tengo display flex para usar justify-content, se usa un 0 auto*/
+    padding: 2rem; /*espacio hacia adentro*/
+    border-radius: 1rem;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700; /*700 o bold*/
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+
+.contenedor-campos {
+
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block; /*Cada elemento va a tomar todo el espacio disponible*/
+}
+
+.input-text {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+}
+
+.enviar .boton { /*Todo lo que tengo arriba en la clase botón lo voy a necesitar, pero si tiene de padre la clase enviar necesito un width:100%*/
+    width: 100%;
 }
