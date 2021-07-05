@@ -11,6 +11,15 @@
 html {
     font-size: 62.5%;
     box-sizing: border-box; /*Hack para box model*/
+    scroll-snap-type: y mandatory;
+}
+
+/*Scroll snap*/
+.servicios,
+.navegacion-principal,
+.formulario {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
 }
 
 *, *:before, *:after {
@@ -66,6 +75,7 @@ body {
        width: auto;
    }
 }
+
 
 .sombra {
     /*https://www.cssmatic.com/box-shadow*/
@@ -133,6 +143,27 @@ Aplicar la regla a todos los hijos
 Margin: El espacio del contenedor contra otro contenedor
 Padding: El espacio interior del contenido con las orillas (bordes) del contenedor  
 */
+
+/**Utilidades Se utiliza en el botón de abajo**/
+.w-sm-100 {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+   .w-sm-100{
+       width: auto;
+   }
+}
+
+.flex {
+    display: flex;    
+}
+
+.alinear-derecha {
+    justify-content: flex-end;
+}
+
+
 
 /*Navegtación principal*/
 .nav-bg {
@@ -325,6 +356,8 @@ Grid: Para definir el layout de tu sitio web, como columnas o contenedores de el
     border-radius: 1.5rem;
 }
 
-.enviar .boton { /*Todo lo que tengo arriba en la clase botón lo voy a necesitar, pero si tiene de padre la clase enviar necesito un width:100%*/
-    width: 100%;
+/*
+.enviar .boton { /*Todo lo que tengo arriba en la clase botón lo voy a necesitar, pero si tiene de padre la clase enviar necesito un width:100%
+    width: 100%; esto se hizo en la sección de utilidades
 }
+*/
